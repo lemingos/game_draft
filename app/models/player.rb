@@ -9,11 +9,12 @@ class Player < ActiveRecord::Base
     board.fields.where(:position => 1).first.players << self
   end
 
-  def allot
-    rand(5) + 1
-  end
-
   def move 
     self.update_attribute :field_id, self.board.fields.where(position: (self.field.position + self.allot).modulo(39)).first.id
   end
+
+  protected
+    def allot
+      rand(5) + 1
+    end
 end
