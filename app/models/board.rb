@@ -6,7 +6,8 @@ class Board < ActiveRecord::Base
   def prepare_fields 
     40.times do |i|
       i+=1
-      fields.build index: i
+      field = fields.build index: i
+      field.init_field
     end
   end
 
