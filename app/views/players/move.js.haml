@@ -1,0 +1,4 @@
+- broadcast "/messages/new" do 
+  var player = $(".player.number_#{@player.id}").get(0).outerHTML;
+  $(".player.number_#{@player.id}").remove()
+  $(".field.number_#{@player.field.position}").append(player)

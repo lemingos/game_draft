@@ -1,0 +1,11 @@
+.board
+  -@board.fields.each_with_index do |field, i|
+    -i+=1
+    //Separator to make board square with playable fields around it.
+    -if i > 11 and i.odd? and i <= 30
+      .separator
+    =render field
+
+= link_to 'You lot', move_player_path(current_player.id), :remote => true    
+
+

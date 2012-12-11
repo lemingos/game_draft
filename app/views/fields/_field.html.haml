@@ -1,0 +1,5 @@
+.field{:class => "number_#{field.position}"}
+  = field.label
+  -field.players.each do |player|
+    .player{:class => "number_#{player.id}", :style => "background-color: ##{player.color}"}
+      =player.id

@@ -1,0 +1,5 @@
+%ul 
+  -@boards.each do |board| 
+    %li
+      =board.name
+      =link_to 'Join Game', join_board_path(board)
