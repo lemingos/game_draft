@@ -3,8 +3,7 @@ class Field < ActiveRecord::Base
   belongs_to :board
   has_many :players
 
-  attr_accessible :index, :position
-  after_initialize :set_field_label
+  attr_accessible :index
 
   def init_field
     self.set_board_possition
@@ -30,15 +29,15 @@ class Field < ActiveRecord::Base
     end
 
     def set_field_label
-      if position == 1 
+      if self.position == 1 
         self.label = 'Start'
       elsif [6,16, 26, 36].include?(position) 
         self.label = 'Rails'
         self.color = '964E64'
-      elsif position == 11 
+      elsif self.position == 11 
         self.label = 'Jail'
         self.color = 'E37697'
-      elsif position == 31
+      elsif self.position == 31
        self.label ='Go to jail'
        self.color = 'E37697'
       end
